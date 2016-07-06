@@ -60,26 +60,35 @@ class ViewController: UIViewController {
         plays[spot] = player
         switch spot {
         case 1:
-            
             ticTacImg1.image = UIImage(named:playerMark)
+            ticTacImg1.hidden = false
         case 2:
             ticTacImg2.image = UIImage(named:playerMark)
+            ticTacImg2.hidden = false
         case 3:
             ticTacImg3.image = UIImage(named:playerMark)
+            ticTacImg3.hidden = false
         case 4:
             ticTacImg4.image = UIImage(named:playerMark)
+            ticTacImg4.hidden = false
         case 5:
             ticTacImg5.image = UIImage(named:playerMark)
+            ticTacImg5.hidden = false
         case 6:
             ticTacImg6.image = UIImage(named:playerMark)
+            ticTacImg6.hidden = false
         case 7:
             ticTacImg7.image = UIImage(named:playerMark)
+            ticTacImg7.hidden = false
         case 8:
             ticTacImg8.image = UIImage(named:playerMark)
+            ticTacImg8.hidden = false
         case 9:
             ticTacImg9.image = UIImage(named:playerMark)
+            ticTacImg9.hidden = false
         default:
             ticTacImg5.image = UIImage(named:playerMark)
+            ticTacImg5.hidden = false
         }
         
     }
@@ -96,6 +105,15 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ticTacImg1.hidden = true
+        ticTacImg2.hidden = true
+        ticTacImg3.hidden = true
+        ticTacImg4.hidden = true
+        ticTacImg5.hidden = true
+        ticTacImg6.hidden = true
+        ticTacImg7.hidden = true
+        ticTacImg8.hidden = true
+        ticTacImg9.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
