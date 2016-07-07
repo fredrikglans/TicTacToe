@@ -48,6 +48,30 @@ class ViewController: UIViewController {
         aiTurn()
     }
     
+    @IBAction func UIResetButtonClicked(){
+        ticTacImg1.hidden = true
+        plays[1] = nil
+        ticTacImg2.hidden = true
+        plays[2] = nil
+        ticTacImg3.hidden = true
+        plays[3] = nil
+        ticTacImg4.hidden = true
+        plays[4] = nil
+        ticTacImg5.hidden = true
+        plays[5] = nil
+        ticTacImg6.hidden = true
+        plays[6] = nil
+        ticTacImg7.hidden = true
+        plays[7] = nil
+        ticTacImg8.hidden = true
+        plays[8] = nil
+        ticTacImg9.hidden = true
+        plays[9] = nil
+        userMessage.hidden = true
+        resetBtn.hidden = true
+        done = false
+    }
+    
     func setImageForSpot(spot:Int,player:Int) {
         var playerMark = "x"
         if player == 1 {
@@ -95,10 +119,60 @@ class ViewController: UIViewController {
     
     
     func checkForWin() {
-        
+        if plays[1] == 1 && plays[5] == 1 && plays[9] == 1 {
+            userMessage.hidden = false
+            userMessage.text = "I won" //diag
+            resetBtn.hidden = false
+            done = true
+        }
+        else if plays[1] == 1 && plays[2] == 1 && plays[3] == 1 {
+            userMessage.hidden = false
+            resetBtn.hidden = false
+            done = true
+        }
+        else if plays[4] == 1 && plays[5] == 1 && plays[6] == 1 {
+            userMessage.hidden = false
+            resetBtn.hidden = false
+            done = true
+        }
+        else if plays[7] == 1 && plays[8] == 1 && plays[9] == 1 {
+            userMessage.hidden = false
+            resetBtn.hidden = false
+            done = true
+        }
+        else if plays[3] == 1 && plays[5] == 1 && plays[7] == 1 {
+            userMessage.hidden = false
+            resetBtn.hidden = false
+            done = true
+        }
+        else if plays[1] == 1 && plays[4] == 1 && plays[7] == 1 {
+            userMessage.hidden = false
+            resetBtn.hidden = false
+            done = true
+        }
+        else if plays[2] == 1 && plays[5] == 1 && plays[8] == 1 {
+            userMessage.hidden = false
+            resetBtn.hidden = false
+            done = true
+        }
+        else if plays[3] == 1 && plays[5] == 1 && plays[9] == 1 {
+            userMessage.hidden = false
+            resetBtn.hidden = false
+            done = true
+        }
     }
     
     func aiTurn() {
+        if plays[5] == nil {
+            setImageForSpot(5,player:0)
+        }
+        else {
+            var aiPlay = arc4random_uniform(9)+1
+            while aiPlay == 5 && plays[Int(aiPlay)] != nil {
+                aiPlay = arc4random_uniform(9)+1
+            }
+            setImageForSpot(Int(aiPlay),player:0)
+        }
         
     }
     
